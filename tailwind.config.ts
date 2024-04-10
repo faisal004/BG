@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -67,13 +67,70 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        blob1: {
+          "0%": {
+
+            opacity: "1"
+          }, "10%": {
+
+            opacity: "0"
+          },
+          "20%": {
+
+            opacity: "1"
+          },
+          "30%": {
+
+            opacity: "0"
+          },
+          "66%": {
+
+            opacity: "0"
+          }, "100%": {
+
+            opacity: "1"
+          },
+        },
+        flicker: {
+          "0%": {
+
+            opacity: "1"
+          }, "10%": {
+
+            opacity: "0"
+          },
+          "20%": {
+
+            opacity: "1"
+          },
+          "30%": {
+
+            opacity: "0"
+          },
+          
+          "40%": {
+
+            opacity: "1"
+          },
+          "66%": {
+
+            opacity: "0"
+          }, "100%": {
+
+            opacity: "1"
+          },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "slideDown": 'slideDown 1s ease-in-out forwards',
+        "flicker-1": "flicker 2s ",
+        "flicker-3": "flicker 2.5s "
+
       },
-      fontFamily:{
-        cal:["Cal",'sans-serif']
+      fontFamily: {
+        cal: ["Cal", 'sans-serif']
       }
     },
   },
