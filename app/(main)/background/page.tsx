@@ -1,11 +1,24 @@
+"use client"
+import { Button } from '@/components/ui/button'
 import BackgroundColorCard from './_components/background-card'
+import { useBackgroundStore } from '@/Store/backgroundStore'
 
 const Background = () => {
+  const { backgroundColor, setBgValue } = useBackgroundStore()
+  const handleReset = () => {
+    setBgValue("")
+  }
   return (
     <div className="flex flex-col items-center justify-center w-full   ">
-      <div className="flex items-center justify-center h-screen md:text-5xl text-3xl text-center p-3 font-semibold tracking-wider">
-        Collection of different background color and also you can make one of
+      <div className="flex flex-col gap-4 items-center justify-center h-screen md:text-5xl text-3xl text-center p-3 font-semibold tracking-wider">
+       <div>
+       Collection of different background color and also you can make one of
         you own
+       </div>
+       <Button onClick={handleReset} className='mt-5 tracking-normal'>
+        Reset
+       </Button>
+       
       </div>
       <div className="grid md:grid-cols-3 grid-cols-1 gap-3 w-full max-w-[1200px] p-2 ">
         <BackgroundColorCard bg="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-500 to-blue-700" />
