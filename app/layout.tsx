@@ -3,7 +3,8 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 const inter = Inter({ subsets: ['latin'] })
-
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 export const metadata: Metadata = {
   title: 'UI - All Tricks in one Place',
   description: 'Collection of CSS tricks I learn on daily basis',
@@ -25,6 +26,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <SpeedInsights />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
