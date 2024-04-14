@@ -1,5 +1,6 @@
 import { ModeToggle } from '@/components/toggle-theme'
 import { Github } from 'lucide-react'
+import Link from 'next/link'
 
 const Navbar = () => {
   return (
@@ -8,7 +9,10 @@ const Navbar = () => {
         <div className="text-3xl font-bold tracking-widest cursor-pointer">UI</div>
         <div className='flex items-center gap-2'>
             <ModeToggle/>
-          <Github />
+            <Link href="https://github.com/faisal004/ui" target='_blank'>
+            <Github />
+            </Link>
+         
         </div>
       </div>
     </div>
