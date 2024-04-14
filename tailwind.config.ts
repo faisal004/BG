@@ -67,7 +67,7 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        blob1: {
+        "flicker2": {
           "0%": {
 
             opacity: "1"
@@ -83,15 +83,24 @@ const config = {
 
             opacity: "0"
           },
-          "66%": {
+          "60%": {
 
             opacity: "0"
-          }, "100%": {
+          }, 
+          "70%": {
+
+            opacity: "1"
+          },
+          "80%": {
+
+            opacity: "0"
+          },
+          "100%": {
 
             opacity: "1"
           },
         },
-        flicker: {
+        "flicker": {
           "0%": {
 
             opacity: "1"
@@ -125,7 +134,7 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "slideDown": 'slideDown 1s ease-in-out forwards',
-        "flicker-1": "flicker 2s ",
+        "flicker-1": "flicker2 2s ",
         "flicker-3": "flicker 2.5s "
 
       },
