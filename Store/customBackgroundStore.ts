@@ -10,6 +10,8 @@ interface ColorState {
 interface ColorStore {
     colors: ColorState;
     setColors: (newColors: Partial<ColorState>) => void;
+    position: string;
+    setPosition: (newPosition: string) => void;
 }
 const useCustomBgStore = create<ColorStore>((set) => ({
     colors: {
@@ -17,6 +19,8 @@ const useCustomBgStore = create<ColorStore>((set) => ({
         via: null,
         to: null,
     },
+    position:"top left",
+    setPosition: (newPosition) => set({ position: newPosition }),
     setColors: (newColors) =>
         set((state) => ({ colors: { ...state.colors, ...newColors } })),
 }));

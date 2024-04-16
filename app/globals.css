@@ -8,6 +8,19 @@ body,
   height: 100%;
 
 }
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(32, 32, 35);
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#000000 , #000000);
+  border-radius: 0vh;
+}
 @font-face {
   font-family: "Cal";
   src: url('../public/CalSans-SemiBold.otf');

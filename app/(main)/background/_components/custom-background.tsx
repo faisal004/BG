@@ -6,17 +6,28 @@ import useCustomBgStore from '@/Store/customBackgroundStore'
 import { ColorPicker } from 'antd'
 import { Check, Copy } from 'lucide-react'
 import { useState } from 'react'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { positions } from '@/utils/positions'
+import { convertToUnderscore } from '@/utils/convertToTailwindpos'
+import GradientSelect from './gradient-positon-select'
 
 const CustomBackground = () => {
-  const { colors, setColors } = useCustomBgStore()
+  const { colors, setColors, position} = useCustomBgStore()
   const { setBgDynamicValue } = useBackgroundStore()
   const [copied, setCopied] = useState(false)
+  const convertedString = convertToUnderscore(position)
 
-  const backgroundColorForTailwind = `bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[${colors.from}] via-[${colors.via}]  to-[${colors.to}]`
+  const backgroundColorForTailwind = `bg-[radial-gradient(ellipse_at_${convertedString},_var(--tw-gradient-stops))] from-[${colors.from}] via-[${colors.via}]  to-[${colors.to}]`
   const handlePreview = () => {
     setBgDynamicValue(backgroundStyle)
   }
-  const gradient = `radial-gradient(ellipse at bottom, ${
+  const gradient = `radial-gradient(ellipse at ${position}, ${
     colors.from || 'transparent'
   },${colors.via || 'transparent'}, ${colors.to || 'transparent'})`
 
@@ -30,7 +41,8 @@ const CustomBackground = () => {
       setCopied(false)
     }, 1000)
   }
-console.log(backgroundColorForTailwind)
+ 
+
   return (
     <div className="flex md:flex-row flex-col justify-between w-full gap-3">
       <Card
@@ -45,21 +57,22 @@ console.log(backgroundColorForTailwind)
             Preview
           </button>{' '}
           <button
-          onClick={handleCopy}
-          disabled={copied}
-          className="py-0 bg-white rounded-md px-2 text-black h-6 text-xs"
-        >
-          {copied ? (
-            <Check className="h-4 w-4" />
-          ) : (
-            <Copy className="h-4 w-4" />
-          )}
-        </button>
+            onClick={handleCopy}
+            disabled={copied}
+            className="py-0 bg-white rounded-md px-2 text-black h-6 text-xs"
+          >
+            {copied ? (
+              <Check className="h-4 w-4" />
+            ) : (
+              <Copy className="h-4 w-4" />
+            )}
+          </button>
         </div>
+        <div>Your Custom Background 😎</div>
       </Card>
 
       <Card
-        className={`h-fit w-full  items-start  justify-center relative p-4 grid grid-cols-3  `}
+        className={`h-fit w-full  items-start  justify-center relative p-4 grid grid-cols-3 gap-3   `}
       >
         <div className="flex gap-2 items-center justify-center">
           <div>From</div>
@@ -91,6 +104,8 @@ console.log(backgroundColorForTailwind)
             showText
           />
         </div>
+
+       <GradientSelect/>
       </Card>
     </div>
   )
