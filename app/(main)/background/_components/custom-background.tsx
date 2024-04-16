@@ -24,7 +24,7 @@ const CustomBackground = () => {
   const [copied, setCopied] = useState(false)
   const convertedString = convertToUnderscore(position)
 
-  const backgroundColorForTailwind = `bg-[radial-gradient(ellipse_at_${convertedString},_var(--tw-gradient-stops))] from-[${colors.from}] via-[${colors.via}]  to-[${colors.to}]`
+  const backgroundColorForTailwind = `bg-[radial-gradient(${shape}_at_${convertedString},_var(--tw-gradient-stops))] from-[${colors.from}] via-[${colors.via}]  to-[${colors.to}]`
   const handlePreview = () => {
     setBgDynamicValue(backgroundStyle)
   }
