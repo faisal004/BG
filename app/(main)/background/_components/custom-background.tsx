@@ -4,22 +4,33 @@ import { useBackgroundStore } from '@/Store/backgroundStore'
 import useCustomBgStore from '@/Store/customBackgroundStore'
 
 import { ColorPicker } from 'antd'
+import { Check, Copy } from 'lucide-react'
+import { useState } from 'react'
 
 const CustomBackground = () => {
   const { colors, setColors } = useCustomBgStore()
-  const { backgroundColor, setBgValue } = useBackgroundStore()
-  const backgroundColorForTailwind = `bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[${colors.from}]  to-[${colors.to}]`
-    const handlePreview = () => {
-      setBgValue(backgroundColorForTailwind)
-    }
+  const { setBgDynamicValue } = useBackgroundStore()
+  const [copied, setCopied] = useState(false)
+
+  const backgroundColorForTailwind = `bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[${colors.from}] via-[${colors.via}]  to-[${colors.to}]`
+  const handlePreview = () => {
+    setBgDynamicValue(backgroundStyle)
+  }
   const gradient = `radial-gradient(ellipse at bottom, ${
     colors.from || 'transparent'
-  }, ${colors.to || 'transparent'})`
+  },${colors.via || 'transparent'}, ${colors.to || 'transparent'})`
 
   const backgroundStyle = {
     background: gradient,
   }
-
+  const handleCopy = () => {
+    navigator.clipboard.writeText(backgroundColorForTailwind)
+    setCopied(true)
+    setTimeout(() => {
+      setCopied(false)
+    }, 1000)
+  }
+console.log(backgroundColorForTailwind)
   return (
     <div className="flex md:flex-row flex-col justify-between w-full gap-3">
       <Card
@@ -27,12 +38,23 @@ const CustomBackground = () => {
         style={backgroundStyle}
       >
         <div className={`flex absolute top-2 right-2 gap-1`}>
-          <button className="py-0 bg-white rounded-md px-2 text-black h-6 text-xs"  onClick={handlePreview}>
+          <button
+            className="py-0 bg-white rounded-md px-2 text-black h-6 text-xs"
+            onClick={handlePreview}
+          >
             Preview
           </button>{' '}
-          <button className="py-0 bg-white rounded-md px-2 text-black h-6 text-xs">
-            Copy
-          </button>
+          <button
+          onClick={handleCopy}
+          disabled={copied}
+          className="py-0 bg-white rounded-md px-2 text-black h-6 text-xs"
+        >
+          {copied ? (
+            <Check className="h-4 w-4" />
+          ) : (
+            <Copy className="h-4 w-4" />
+          )}
+        </button>
         </div>
       </Card>
 
@@ -52,7 +74,7 @@ const CustomBackground = () => {
         <div className="flex gap-2 items-center justify-center">
           <div>Via</div>
           <ColorPicker
-            value={colors.via || ''}
+            value={colors.via || '#1677FF'}
             onChange={(color, hex) => {
               setColors({ ...colors, via: hex || null })
             }}

@@ -5,9 +5,10 @@ import { useBackgroundStore } from '@/Store/backgroundStore'
 import CustomBackground from './_components/custom-background'
 
 const Background = () => {
-  const { backgroundColor, setBgValue } = useBackgroundStore()
+  const { setBgValue,setBgDynamicValue } = useBackgroundStore()
   const handleReset = () => {
     setBgValue("")
+    setBgDynamicValue({})
   }
   return (
     <div className="flex flex-col items-center justify-center w-full   ">

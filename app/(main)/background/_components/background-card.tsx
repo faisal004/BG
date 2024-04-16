@@ -5,7 +5,7 @@ import { Check, Copy } from 'lucide-react'
 import { useState } from 'react'
 
 const BackgroundColorCard = ({ bg }: any) => {
-  const { backgroundColor, setBgValue } = useBackgroundStore()
+  const { setBgValue } = useBackgroundStore()
   const [copied, setCopied] = useState(false)
   const handleCopy = () => {
     navigator.clipboard.writeText(bg)
