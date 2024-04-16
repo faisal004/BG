@@ -12,6 +12,9 @@ interface ColorStore {
     setColors: (newColors: Partial<ColorState>) => void;
     position: string;
     setPosition: (newPosition: string) => void;
+    shape: string;
+    setShape: (newPosition: string) => void;
+
 }
 const useCustomBgStore = create<ColorStore>((set) => ({
     colors: {
@@ -19,8 +22,10 @@ const useCustomBgStore = create<ColorStore>((set) => ({
         via: null,
         to: null,
     },
-    position:"top left",
+    position: "top left",
     setPosition: (newPosition) => set({ position: newPosition }),
+    shape: "ellipse",
+    setShape: (newShape) => set({ shape: newShape }),
     setColors: (newColors) =>
         set((state) => ({ colors: { ...state.colors, ...newColors } })),
 }));

@@ -16,9 +16,10 @@ import {
 import { positions } from '@/utils/positions'
 import { convertToUnderscore } from '@/utils/convertToTailwindpos'
 import GradientSelect from './gradient-positon-select'
+import GradientShapeSelect from './gradient-shape'
 
 const CustomBackground = () => {
-  const { colors, setColors, position} = useCustomBgStore()
+  const { colors, setColors, position,shape,setShape} = useCustomBgStore()
   const { setBgDynamicValue } = useBackgroundStore()
   const [copied, setCopied] = useState(false)
   const convertedString = convertToUnderscore(position)
@@ -27,7 +28,7 @@ const CustomBackground = () => {
   const handlePreview = () => {
     setBgDynamicValue(backgroundStyle)
   }
-  const gradient = `radial-gradient(ellipse at ${position}, ${
+  const gradient = `radial-gradient(${shape} at ${position}, ${
     colors.from || 'transparent'
   },${colors.via || 'transparent'}, ${colors.to || 'transparent'})`
 
@@ -106,6 +107,7 @@ const CustomBackground = () => {
         </div>
 
        <GradientSelect/>
+       <GradientShapeSelect/>
       </Card>
     </div>
   )
