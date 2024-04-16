@@ -5,7 +5,7 @@ import { Check, Copy } from 'lucide-react'
 import { useState } from 'react'
 
 const BackgroundColorCard = ({ bg }: any) => {
-  const { backgroundColor, setBgValue } = useBackgroundStore()
+  const { setBgValue,setBgDynamicValue } = useBackgroundStore()
   const [copied, setCopied] = useState(false)
   const handleCopy = () => {
     navigator.clipboard.writeText(bg)
@@ -15,6 +15,7 @@ const BackgroundColorCard = ({ bg }: any) => {
     }, 1000)
   }
   const handlePreview = () => {
+    setBgDynamicValue({})
     setBgValue(bg)
   }
   return (
