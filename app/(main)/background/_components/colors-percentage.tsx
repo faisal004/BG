@@ -9,6 +9,8 @@ const ColorsPercentage = () => {
         <div>From</div>
         <Input
           type="number"
+          min={0}
+          max={100}
           value={colorsPercentage.from}
           onChange={(e) =>
             setColorsPercentage({ from: Number(e.target.value) })
@@ -19,6 +21,8 @@ const ColorsPercentage = () => {
         <div>Via</div>
         <Input
           type="number"
+          min={0}
+          max={100}
           value={colorsPercentage.via}
           onChange={(e) => setColorsPercentage({ via: Number(e.target.value) })}
         />
@@ -27,6 +31,8 @@ const ColorsPercentage = () => {
         <div>To</div>
         <Input
           type="number"
+          min={0}
+          max={100}
           value={colorsPercentage.to}
           onChange={(e) => setColorsPercentage({ to: Number(e.target.value) })}
         />
