@@ -8,7 +8,7 @@ const Footer = () => {
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
           >
-            shadcn
+            faisal
           </a>
           . The source code is available on{" "}
           <a
