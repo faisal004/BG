@@ -2,24 +2,26 @@
 import { Card } from '@/components/ui/card'
 import { useBackgroundStore } from '@/Store/backgroundStore'
 import useCustomBgStore from '@/Store/customBackgroundStore'
-
 import { ColorPicker } from 'antd'
 import { Check, Copy } from 'lucide-react'
 import { useState } from 'react'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import { positions } from '@/utils/positions'
 import { convertToUnderscore } from '@/utils/convertToTailwindpos'
 import GradientSelect from './gradient-positon-select'
 import GradientShapeSelect from './gradient-shape'
+import { Input } from '@/components/ui/input'
+import ColorsPercentage from './colors-percentage'
+import ColorsPicker from './colors-picker'
 
 const CustomBackground = () => {
-  const { colors, setColors, position,shape,setShape} = useCustomBgStore()
+  const {
+    colors,
+    setColors,
+    position,
+    shape,
+    setShape,
+    colorsPercentage,
+    setColorsPercentage,
+  } = useCustomBgStore()
   const { setBgDynamicValue } = useBackgroundStore()
   const [copied, setCopied] = useState(false)
   const convertedString = convertToUnderscore(position)
@@ -28,9 +30,11 @@ const CustomBackground = () => {
   const handlePreview = () => {
     setBgDynamicValue(backgroundStyle)
   }
-  const gradient = `radial-gradient(${shape} at ${position}, ${
+  const gradient = `radial-gradient(${shape} at ${position} , ${
     colors.from || 'transparent'
-  },${colors.via || 'transparent'}, ${colors.to || 'transparent'})`
+  } ${colorsPercentage.from}%   ,${colors.via || 'transparent'}  ${
+    colorsPercentage.via
+  }% , ${colors.to || 'transparent'}  ${colorsPercentage.to}% )`
 
   const backgroundStyle = {
     background: gradient,
@@ -42,7 +46,6 @@ const CustomBackground = () => {
       setCopied(false)
     }, 1000)
   }
- 
 
   return (
     <div className="flex md:flex-row flex-col justify-between w-full gap-3">
@@ -75,39 +78,11 @@ const CustomBackground = () => {
       <Card
         className={`h-fit w-full  items-start  justify-center relative p-4 grid grid-cols-3 gap-3   `}
       >
-        <div className="flex gap-2 items-center justify-center">
-          <div>From</div>
-          <ColorPicker
-            value={colors.from || '#1677FF'}
-            onChange={(color, hex) => {
-              setColors({ ...colors, from: hex || null })
-            }}
-            showText
-          />
-        </div>
-        <div className="flex gap-2 items-center justify-center">
-          <div>Via</div>
-          <ColorPicker
-            value={colors.via || '#1677FF'}
-            onChange={(color, hex) => {
-              setColors({ ...colors, via: hex || null })
-            }}
-            showText
-          />
-        </div>
-        <div className="flex gap-2 items-center justify-center">
-          <div>To</div>
-          <ColorPicker
-            value={colors.to || '#1677FF'}
-            onChange={(color, hex) => {
-              setColors({ ...colors, to: hex || null })
-            }}
-            showText
-          />
-        </div>
-
-       <GradientSelect/>
-       <GradientShapeSelect/>
+        <ColorsPicker />
+        <ColorsPercentage />
+        <GradientSelect />
+        <GradientShapeSelect />
+       
       </Card>
     </div>
   )
