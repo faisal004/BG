@@ -11,6 +11,12 @@ interface ColorPercentageState {
     via: number;
     to: number;
 }
+interface SliderState {
+    xAxis: number;
+    yAxis: number;
+    height: number;
+    width: number;
+}
 interface ColorStore {
     colors: ColorState;
     colorsPercentage: ColorPercentageState;
@@ -20,6 +26,11 @@ interface ColorStore {
     setPosition: (newPosition: string) => void;
     shape: string;
     setShape: (newPosition: string) => void;
+    switchChecked:boolean;
+    setSwitchChecked:(switchChecked:boolean)=>void
+    sliders: SliderState;
+    setSliders: (newSliders: Partial<SliderState>) => void;
+    
 
 }
 const useCustomBgStore = create<ColorStore>((set) => ({
@@ -33,6 +44,12 @@ const useCustomBgStore = create<ColorStore>((set) => ({
         via: 50,
         to: 100,
     },
+    sliders: {
+        xAxis: 0,
+        yAxis: 0,
+        height: 500,
+        width: 500
+    },
     position: "top left",
     setPosition: (newPosition) => set({ position: newPosition }),
     shape: "ellipse",
@@ -41,6 +58,10 @@ const useCustomBgStore = create<ColorStore>((set) => ({
         set((state) => ({ colors: { ...state.colors, ...newColors } })),
     setColorsPercentage: (newPercentage) =>
         set((state) => ({ colorsPercentage: { ...state.colorsPercentage, ...newPercentage } })),
+    switchChecked: false,
+    setSwitchChecked: (switchChecked: boolean) => set({ switchChecked }),
+    setSliders: (newSliders) =>
+        set((state) => ({ sliders: { ...state.sliders, ...newSliders } })),
 }));
 
 export default useCustomBgStore;

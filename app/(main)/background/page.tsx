@@ -33,8 +33,8 @@ const Background = () => {
         </div>
       <div className="grid md:grid-cols-3 grid-cols-1 gap-3 w-full max-w-[1200px] p-2 ">
       
-        <BackgroundColorCard bg="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-500  to-blue-700" />
-        <BackgroundColorCard bg="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-900 to-violet-950" />
+        <BackgroundColorCard bg="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-500 to-blue-700" />
+        <BackgroundColorCard bg="bg-[radial-gradient(ellipse_at_10%_100%,_var(--tw-gradient-stops))] from-violet-900 to-violet-950" />
         <BackgroundColorCard bg="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 to-black text-white" />
         <BackgroundColorCard bg="bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] text-white" />
         <BackgroundColorCard bg="bg-[radial-gradient(100%_50%_at_5%_100%,_var(--tw-gradient-stops))] from-blue-700 to-slate-100 text-black" />

@@ -19,7 +19,7 @@ export function ModeToggle() {
 
   return (
     <Button
-      variant="outline"
+      variant="link"
       size="icon"
       onClick={toggleTheme}
       className={theme === 'light' ? 'text-blue-500' : 'text-gray-500'}
