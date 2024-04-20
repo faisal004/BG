@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 const HomePage = () => {
   return (
-    <div className="max-w-[1300px]  mx-auto w-full flex flex-col items-center justify-center h-[100%]  gap-6 font-cal">
-      <div className="md:text-7xl text-4xl font-semibold tracking-widest text-left  w-full  px-3 flex flex-col  gap-3 h-[calc(100vh-4rem)] ">
+    <div className="max-w-[1300px]  mx-auto w-full flex flex-col items-center justify-center h-[calc(100vh-6rem)]  gap-6 font-cal">
+      <div className="md:text-7xl text-4xl font-semibold tracking-widest text-left  w-full  px-3 flex flex-col  gap-3 h-full ">
         <p className="animate-flicker-1  mt-20 text-transparent bg-clip-text bg-gradient-to-r from-black dark:from-white to-gray-600 dark:to-gray-400  ">
           Collection of CSS Tricks <br /> I learn on Daily basis
         </p>
