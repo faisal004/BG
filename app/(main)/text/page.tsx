@@ -22,6 +22,12 @@ const TextsSection = () => {
 
       <div className="grid md:grid-cols-3 grid-cols-1 gap-3 w-full max-w-[1200px] p-2 ">
         <TextCard text="text-transparent bg-clip-text bg-gradient-to-r from-black dark:from-white to-gray-600 dark:to-gray-400" />
+        <TextCard text="text-transparent bg-clip-text bg-gradient-to-tl from-purple-500 dark:from-pink-500 to-orange-600 dark:to-amber-400" />
+        <TextCard text="text-transparent bg-clip-text bg-gradient-to-bl from-red-500 dark:from-orange-500 to-yellow-600 dark:to-lime-400" />
+        <TextCard text="text-transparent bg-clip-text bg-gradient-to-r from-green-500 dark:from-teal-500 to-blue-600 dark:to-indigo-400" />
+        <TextCard text="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 dark:from-yellow-500 to-purple-600 dark:to-red-400" />
+        <TextCard text="text-transparent bg-clip-text bg-gradient-to-r from-green-500 dark:from-violet-500 to-teal-600 dark:to-green-400" />
+
       </div>
     </div>
   )
