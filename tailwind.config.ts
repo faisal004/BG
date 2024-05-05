@@ -59,6 +59,16 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "border-width": {
+          "from": {
+            "width": "10%",
+            "opacity": "0"
+          },
+          "to": {
+            "width": "100%",
+            "opacity": "1"
+          }
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -67,6 +77,7 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        
         "flicker2": {
           "0%": {
 
@@ -135,7 +146,8 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "slideDown": 'slideDown 1s ease-in-out forwards',
         "flicker-1": "flicker2 2s ",
-        "flicker-3": "flicker 2.5s "
+        "flicker-3": "flicker 2.5s ",
+        "border-width": "border-width 3s forwards  "
 
       },
       fontFamily: {

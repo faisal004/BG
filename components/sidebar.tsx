@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -17,13 +17,32 @@ const Sidebar = ({ className }: Props) => {
       )}
     >
       <div className="border-b-2 border-gray-400 flex items-center justify-center font-bold text-3xl py-2 tracking-widest">
-        <Link href="/">UI</Link>
+        <Link className="dark:text-white text-black" href="/">
+          UI
+        </Link>
       </div>
-      <div className="flex items-start w-full  justify-start p-3">
+      <div className="flex flex-col items-start w-full  justify-start p-3">
         {/* Check if the current route matches the link's href, if so, add 'text-emerald-500' class */}
         <Link href="/background">
-          <div className={`text-base font-semibold tracking-wider cursor-pointer group flex w-full items-center rounded-md border border-transparent px-2 py-1 ${pathname === '/background' ? 'text-emerald-500' : 'text-muted-foreground'} hover:text-emerald-500 hover:translate-x-1 transition duration-200`}>
+          <div
+            className={`text-base font-semibold tracking-wider cursor-pointer group flex w-full items-center rounded-md border border-transparent px-2 py-1 ${
+              pathname === '/background'
+                ? 'text-emerald-500'
+                : 'text-muted-foreground'
+            } hover:text-emerald-500 hover:translate-x-1 transition duration-200`}
+          >
             Background
+          </div>
+        </Link>
+        <Link href="/text">
+          <div
+            className={`text-base font-semibold tracking-wider cursor-pointer group flex w-full items-center rounded-md border border-transparent px-2 py-1 ${
+              pathname === '/text'
+                ? 'text-emerald-500'
+                : 'text-muted-foreground'
+            } hover:text-emerald-500 hover:translate-x-1 transition duration-200`}
+          >
+            Text
           </div>
         </Link>
       </div>

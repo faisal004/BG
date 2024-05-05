@@ -22,10 +22,10 @@ export function ModeToggle() {
       variant="link"
       size="icon"
       onClick={toggleTheme}
-      className={theme === 'light' ? 'text-blue-500' : 'text-gray-500'}
+      className={`border-2  ${theme === 'light' ? 'text-blue-500' : 'text-gray-100'}`}
     >
       {theme === 'light' ? (
-        <Sun className="h-5 w-5" />
+        <Sun className="h-5 w-5 " />
       ) : (
         <Moon className="h-5 w-5" />
       )}
