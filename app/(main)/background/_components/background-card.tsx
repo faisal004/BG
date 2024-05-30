@@ -29,7 +29,7 @@ const BackgroundColorCard = ({ bg, vanillaCss }: any) => {
   }
   return (
     <div className="flex flex-col">
-      <div className="h-12 bg-black flex gap-2 bg-black border-2 border-b-0 rounded-t-lg p-2    duration-200  ">
+      <div className="h-12 bg-black flex gap-2  border-2 border-b-0 rounded-t-lg p-2    duration-200  ">
         <button
           onClick={handleCopy}
           disabled={copied}
@@ -53,7 +53,7 @@ const BackgroundColorCard = ({ bg, vanillaCss }: any) => {
         className={`h-48 w-full rounded-t-none flex items-center border-t-none  justify-center group relative ${bg} overflow-hidden `}
       >
         <div
-          className={`flex absolute top-20  -right-32 gap-1 group-hover:-translate-x-64 transition-transform duration-300`}
+          className={`flex absolute top-20  -right-28 gap-1 group-hover:-translate-x-64 transition-transform duration-300`}
         >
           <button
             className="py-0 bg-white rounded-md px-2 text-black h-6 text-xs"

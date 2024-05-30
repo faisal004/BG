@@ -6,8 +6,8 @@ const inter = Inter({ subsets: ['latin'] })
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 export const metadata: Metadata = {
-  title: 'UI - All Tricks in one Place',
-  description: 'Collection of CSS tricks I learn on daily basis',
+  title: 'BG',
+  description: 'Collection of Modern Background',
 }
 
 export default function RootLayout({
