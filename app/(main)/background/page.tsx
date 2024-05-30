@@ -12,7 +12,7 @@ const Background = () => {
   }
   return (
     <div className="flex flex-col items-center justify-center w-full   ">
-      <div className="flex flex-col gap-4 items-center justify-center h-screen md:text-5xl text-3xl text-center p-3 font-semibold   max-w-[1200px] ">
+      {/* <div className="flex flex-col gap-4 items-center justify-center h-screen md:text-5xl text-3xl text-center p-3 font-semibold   max-w-[1200px] ">
         <div>
           Collection of different background color and also you can make one of
           you own
@@ -20,17 +20,17 @@ const Background = () => {
         <Button onClick={handleReset} className="mt-5 tracking-normal">
           Reset
         </Button>
-      </div>
-      <div className="md:text-5xl text-3xl font-semibold my-10 text-center">
+      </div> */}
+      <div className="md:text-5xl text-3xl font-semibold py-20 text-center text-transparent bg-clip-text bg-gradient-to-r from-black dark:from-white to-gray-600 dark:to-gray-400">
         Build your custom background
       </div>
       <div className="w-full  max-w-[1200px] p-2">
         <CustomBackground />
       </div>
-      <div className="md:text-5xl text-3xl font-semibold my-10 text-center">
+      <div className="md:text-5xl text-3xl font-semibold py-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-black dark:from-white to-gray-600 dark:to-gray-400">
         Pre Built Styles
       </div>
-      <div className="grid md:grid-cols-3 grid-cols-1 gap-3 w-full max-w-[1200px] p-2 ">
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-3 w-full max-w-[1100px] p-2 ">
         <BackgroundColorCard
           bg="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-500 to-blue-700"
           vanillaCss="background: radial-gradient(ellipse at top, #3b82f6, #1d4ed8);"

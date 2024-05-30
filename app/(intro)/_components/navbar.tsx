@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="max-w-[1300px] w-full flex justify-between items-center mx-auto  ">
         <div className="w-full flex items-center justify-between px-3">
           <div className="text-3xl font-bold tracking-widest cursor-pointer dark:text-white text-black">
-            UI
+            BG
           </div>
           <div className="flex items-center gap-2">
             <ModeToggle />
