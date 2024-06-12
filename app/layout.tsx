@@ -6,9 +6,37 @@ const inter = Inter({ subsets: ['latin'] })
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 export const metadata: Metadata = {
-  title: 'BG',
-  description: 'Collection of Modern Background',
-}
+  title: 'BG | Faisal Husain',
+  description: 'Collection of Modern Backgrounds',
+ 
+  openGraph: {
+    title: 'BG | Faisal Husain',
+    description: 'Collection of Modern Backgrounds',
+    url: 'https://bg-faisal.vercel.app/',
+    images:[
+      {
+        url:"https://bg-faisal.vercel.app/bg.png",
+        width:1200,
+        height:639,
+        alt:"Faisal Husain"
+      }
+    ]
+  },
+  twitter:{
+    card:"summary_large_image",
+    title:"BG | Faisal Husain",
+    description:"Collection of Modern Backgrounds",
+    images:[
+      {
+        url:"https://bg-faisal.vercel.app/bg.png",
+        width:1200,
+        height:639,
+        alt:"Faisal Husain"
+      }
+    ]
+
+  }
+};
 
 export default function RootLayout({
   children,
