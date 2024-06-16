@@ -6,7 +6,7 @@ const Footer = () => {
         <p className="text-balance flex gap-2 text-center text-sm leading-loose text-muted-foreground md:text-left">
           Built by{" "}
           <a
-            href="https://faisal-husain.vercel.app"
+            href="https://www.faisalhusa.in/"
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
