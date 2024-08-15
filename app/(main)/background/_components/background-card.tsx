@@ -33,14 +33,14 @@ const BackgroundColorCard = ({ bg, vanillaCss }: any) => {
         <button
           onClick={handleCopy}
           disabled={copied}
-          className="py-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-black via-zinc-500/40 hover:via-zinc-500/50 to-black text-white rounded-md px-2 text-black h-6 text-xs transition-transform duration-3000 border-zinc-200 hover:border-[1px]"
+          className="py-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-black via-zinc-500/40 hover:via-zinc-500/50 to-black text-white rounded-md px-2  h-6 text-xs transition-transform duration-3000 border-zinc-200 hover:border-[1px]"
         >
           {copied ? <Check className="h-4 w-4" /> : <span>Tailwind</span>}
         </button>
         <button
           onClick={handleVanillaCopy}
           disabled={vanillacopied}
-          className="py-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-black via-zinc-500/40 hover:via-zinc-500/50 to-black text-white rounded-md px-2 text-black h-6 text-xs transition-transform duration-3000 border-zinc-200 hover:border-[1px]"
+          className="py-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-black via-zinc-500/40 hover:via-zinc-500/50 to-black text-white rounded-md px-2  h-6 text-xs transition-transform duration-3000 border-zinc-200 hover:border-[1px]"
         >
           {vanillacopied ? (
             <Check className="h-4 w-4" />
