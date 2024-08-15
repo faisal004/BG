@@ -25,6 +25,8 @@ const CustomBackground = () => {
     sliders,
     setColors,
     setColorsPercentage,
+    setShape,
+    setPosition,
   } = useCustomBgStore()
 
   const { setBgDynamicValue } = useBackgroundStore()
@@ -55,9 +57,15 @@ const CustomBackground = () => {
     const {
       colors: randomColors,
       percentages: randomPercentages,
+      shape: randomShape,
+      position: randomPosition,
     } = generateRandomColor()
     setColors(randomColors)
     setColorsPercentage(randomPercentages)
+    if (!switchChecked) {
+      setShape(randomShape)
+      setPosition(randomPosition)
+    }
   }
   const tailwindtocopy = !switchChecked
     ? backgroundColorForTailwind
