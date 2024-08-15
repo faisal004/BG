@@ -23,7 +23,8 @@ const CustomBackground = () => {
     switchChecked,
     setSwitchChecked,
     sliders,
-    setColors
+    setColors,
+    setColorsPercentage,
   } = useCustomBgStore()
 
   const { setBgDynamicValue } = useBackgroundStore()
@@ -51,8 +52,12 @@ const CustomBackground = () => {
   }
 
   const handleRandomColors = () => {
-    const randomColors = generateRandomColor()
+    const {
+      colors: randomColors,
+      percentages: randomPercentages,
+    } = generateRandomColor()
     setColors(randomColors)
+    setColorsPercentage(randomPercentages)
   }
   const tailwindtocopy = !switchChecked
     ? backgroundColorForTailwind
@@ -124,7 +129,11 @@ const CustomBackground = () => {
       >
         <div className="col-span-3 flex item-center justify-between w-full gap-2 border-b-2 pb-2 ">
           <div className="flex items-center gap-1">
-            <Button className="flex items-center gap-1 " size="sm"     onClick={handleRandomColors}>
+            <Button
+              className="flex items-center gap-1 "
+              size="sm"
+              onClick={handleRandomColors}
+            >
               <Shuffle className="h-4 w-4" />
               <span>Random</span>
             </Button>
