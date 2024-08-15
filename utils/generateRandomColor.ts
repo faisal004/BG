@@ -11,6 +11,8 @@ export const generateRandomColor = () => {
         const position = positions[Math.floor(Math.random() * positions.length)];
         return position.value;
     };
+    const randomHeight = () => Math.floor(Math.random() * 3001);
+    const randomWidth = () => Math.floor(Math.random() * 3001);
     return {
         colors: {
             from: randomColor(),
@@ -23,6 +25,12 @@ export const generateRandomColor = () => {
             to: randomPercentage(),
         },
         shape: randomShape(),
-        position: randomPosition(), 
+        position: randomPosition(),
+        sliders: {
+            height: randomHeight(),
+            width: randomWidth(),
+            xAxis: Math.floor(Math.random() * 101),
+            yAxis: Math.floor(Math.random() * 101),
+        },
     };
 };
