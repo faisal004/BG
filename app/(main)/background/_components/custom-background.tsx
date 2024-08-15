@@ -2,7 +2,7 @@
 import { Card } from '@/components/ui/card'
 import { useBackgroundStore } from '@/Store/backgroundStore'
 import useCustomBgStore from '@/Store/customBackgroundStore'
-import { Check, Copy, RotateCcw } from 'lucide-react'
+import { Check, Copy, RotateCcw, Shuffle } from 'lucide-react'
 import { useState } from 'react'
 import { convertToUnderscore } from '@/utils/convertToTailwindpos'
 import GradientSelect from './gradient-positon-select'
@@ -12,6 +12,7 @@ import ColorsPicker from './colors-picker'
 import { Switch } from '@/components/ui/switch'
 import SlidersComponent from './sliders-components'
 import { Button } from '@/components/ui/button'
+import { generateRandomColor } from '@/utils/generateRandomColor'
 
 const CustomBackground = () => {
   const {
@@ -22,6 +23,7 @@ const CustomBackground = () => {
     switchChecked,
     setSwitchChecked,
     sliders,
+    setColors
   } = useCustomBgStore()
 
   const { setBgDynamicValue } = useBackgroundStore()
@@ -48,6 +50,10 @@ const CustomBackground = () => {
     background: !switchChecked ? gradientNormal : gradientAdvance,
   }
 
+  const handleRandomColors = () => {
+    const randomColors = generateRandomColor()
+    setColors(randomColors)
+  }
   const tailwindtocopy = !switchChecked
     ? backgroundColorForTailwind
     : backgroundColorForTailwindAdvance
@@ -78,7 +84,7 @@ const CustomBackground = () => {
           className={`h-80 w-full flex items-center  justify-center relative rounded-t-none  `}
           style={backgroundStyle}
         >
-          <div className='absolute top-0  w-full text-sm px-2 font-bold border-b-2 '>
+          <div className="absolute top-0  w-full text-sm px-2 font-bold border-b-2 ">
             BG
           </div>
           <div className={`flex absolute top-2 right-2 gap-1`}>
@@ -116,10 +122,21 @@ const CustomBackground = () => {
       <Card
         className={`h-fit w-full  items-start  justify-center relative p-4 grid grid-cols-3 gap-3   `}
       >
-        <div className="col-span-3 flex item-center justify-end w-full gap-2 ">
-          <p>{!switchChecked ? '  Normal Mode' : ' Advance Mode'}</p>
+        <div className="col-span-3 flex item-center justify-between w-full gap-2 border-b-2 pb-2 ">
+          <div className="flex items-center gap-1">
+            <Button className="flex items-center gap-1 " size="sm"     onClick={handleRandomColors}>
+              <Shuffle className="h-4 w-4" />
+              <span>Random</span>
+            </Button>
+          </div>
+          <div className="flex items-center gap-1">
+            <p>{!switchChecked ? '  Normal Mode' : ' Advance Mode'}</p>
 
-          <Switch checked={switchChecked} onCheckedChange={handleCheckChange} />
+            <Switch
+              checked={switchChecked}
+              onCheckedChange={handleCheckChange}
+            />
+          </div>
         </div>
 
         <ColorsPicker />
